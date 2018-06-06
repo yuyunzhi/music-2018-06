@@ -4,37 +4,95 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./css/admin.css">
     <title>Document</title>
 </head>
-<body>
-    <style>
-        
-    *{
-        margin:0;
-        padding:0;
-    }
-    #yyy{
-        padding:10px 20px;
-        border:2px dashed black;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        width:250px;
-        margin-bottom:30px;
-        flex-direction: column;
-    }
-    
-    </style>
 
-    <div id="yyy">
-        <span id="xxx">上传文件</span>
-        <p>文件大小不超过40MB</p>
+<body>
+    <div class="page">
+        <aside class="siderbar">
+            <div class="newSong">
+                新建歌曲
+            </div>
+            <ul class="songList">
+                <li>歌曲</li>
+                <li class="active">歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+                <li>歌曲</li>
+            </ul>
+            
+            <div id="draggable" class="draggable">
+                <span id="clickable" class="clickable">上传文件<br>文件大小不超过40MB</span>
+            </div>
+
+        </aside>
+
+        <main>
+            <form>
+                <div class="row">
+                    <label for="">歌名
+                        <input type="text">
+                    </label>
+                </div>
+
+                <div class="row">
+                    <label for="">歌手
+                        <input type="text">
+                    </label>
+                </div>
+                
+                <div class="row">
+                    <label for="">外链
+                        <input type="text">
+                    </label>
+                </div>
+
+                <div class="row">
+                        <button type="submit">保存</button>
+                </div>
+            </form>
+
+
+            <span id="uploadStatus"></span>
+
+        </main>
     </div>
-    <span id="uploadStatus"></span>
-    <audio src="../3.mp3" controls></audio>
+
+
+
+
+
+
+
+
+
+ 
+
+
 
     <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.7.1/dist/av-min.js"></script>
     <script>
+        /*
     var APP_ID = '467rperuna9SftTEte0Lk6do-gzGzoHsz';
     var APP_KEY = 'rnFAssUJpxyz3Gx2ktNW55I3';
 
@@ -54,6 +112,7 @@
     }).then(function(object) {
         alert('LeanCloud Rocks!');
     })
+    */
     </script>
 
     <script src="../vendors/moxie.js"></script>
@@ -64,13 +123,13 @@
     var uploadStatus = document.getElementById('uploadStatus')
     var uploader = Qiniu.uploader({
          runtimes: 'html5',    //上传模式,依次退化
-         browse_button: 'xxx',       //上传选择的点选按钮，**必需**
+         browse_button: 'clickable',       //上传选择的点选按钮，**必需**
          uptoken_url : 'http://localhost:8888/uptoken',
          domain: 'http://p9r0mcme0.bkt.clouddn.com/',   //bucket 域名，下载资源时用到，**必需**
          get_new_uptoken: false,  //设置上传文件的时候是否每次都重新获取新的token
          max_file_size: '40mb',           //最大文件体积限制
          dragdrop: true,                   //开启可拖曳上传
-         drop_element: 'yyy',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
+         drop_element: 'draggable',        //拖曳上传区域元素的ID，拖曳文件或文件夹后可触发上传
          auto_start: true,                 //选择文件后自动上传，若关闭需要自己绑定事件触发上传
          init: {
              'FilesAdded': function(up, files) {
@@ -83,10 +142,10 @@
              },
              'UploadProgress': function(up, file) {
                  // 每个文件上传时,处理相关的事情
-                 uploadStatus.textContent = '上传中'
+
              },
              'FileUploaded': function(up, file, info) {
-                 uploadStatus.textContent = '上传完毕'
+
                  // 每个文件上传成功后,处理相关的事情
                  // 其中 info.response 是文件上传成功后，服务端返回的json，形式如
                  // {
