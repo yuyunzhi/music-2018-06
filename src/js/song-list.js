@@ -78,6 +78,16 @@
             window.eventHub.on('new',(data)=>{
                 this.view.clearActive()
             })
+
+            window.eventHub.on('update',(song)=>{
+                let songs=this.model.data.songs
+                for(let i=0;songs.length;i++){
+                    if(songs[i].id === song.id){
+                        Object.assign(songs[i],song)
+                        this.view.render(this.model.data)
+                    }
+                }       
+            })
         },
         getAllSongs(){
             this.model.find().then(()=>{
