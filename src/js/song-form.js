@@ -32,8 +32,6 @@
 
         `,
         render(data){
-            console.log("上传的data")
-            console.log(data)
             let place = ['name','singer','url','id']
             let html = this.template
             place.map((string)=>{
@@ -83,6 +81,10 @@
             this.view.render(this.model.data)
             window.eventHub.on("uploadData",(data)=>{
                 this.view.render(data)
+            })
+            window.eventHub.on('activeItem',(data)=>{
+                this.model.data = data
+                this.view.render(this.model.data)
             })
         },
         bindEvents(){

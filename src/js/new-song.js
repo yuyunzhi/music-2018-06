@@ -17,9 +17,15 @@
             window.eventHub.on('uploadData',()=>{
                 this.active()
             })
+            window.eventHub.on('activeItem',()=>{
+                this.removeActive()
+            })
         },
         active(){
             $(this.view.el).addClass('active')
+        },
+        removeActive(){
+            $(this.view.el).removeClass('active')
         }
     }
 
