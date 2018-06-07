@@ -2,7 +2,7 @@
     let view = {
         el:".page>.siderbar>.newSong",
         template:`
-            新建歌曲
+            <p>新建歌曲</p>
         `,
         render(data){
             $(this.el).html(this.template)
@@ -14,18 +14,28 @@
             this.view = view
             this.model = model
             this.view.render(this.model.data)
-            window.eventHub.on('uploadData',()=>{
-                this.active()
-            })
-            window.eventHub.on('activeItem',()=>{
-                this.removeActive()
-            })
+            this.bindEvents()
+            this.bindEventHub()
         },
         active(){
             $(this.view.el).addClass('active')
         },
         removeActive(){
             $(this.view.el).removeClass('active')
+        },
+        bindEvents(){
+            $(this.view.el).on('click','p',()=>{
+                this.active()
+                window.eventHub.emit('new',data={})
+            })
+        },
+        bindEventHub(){
+            window.eventHub.on('uploadData',()=>{
+                this.active()
+            })
+            window.eventHub.on('activeItem',()=>{
+                this.removeActive()
+            })
         }
     }
 

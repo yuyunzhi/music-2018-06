@@ -88,8 +88,14 @@ form {
     border:1px solid red;
 }
 
+main>p{
+    font-size:24px;
+    font-weight: bolder;
+}
 form .row{
     margin:10px;
+    font-size:13px;
+    font-weight: normal;
 }
 
 

@@ -67,15 +67,20 @@
                 let object =JSON.parse(JSON.stringify(data))
                 window.eventHub.emit('activeItem',object)
             })
-
         },
         bindEventHub(){
+            console.log('11111')
             window.eventHub.on('uploadData',()=>{
                 this.view.clearActive()
             })
+            console.log('2222')
             window.eventHub.on('create',(data)=>{
                 this.model.data.songs.push(data)
                 this.view.render(this.model.data)
+            })
+
+            window.eventHub.on('new',()=>{
+                this.view.clearActive()
             })
         },
         getAllSongs(){

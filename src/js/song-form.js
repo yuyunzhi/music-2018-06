@@ -6,6 +6,7 @@
             this.$el=$(this.el)
         },
         template:`
+
         <form>
             <div class="row">
                 <label for="">歌名
@@ -38,9 +39,21 @@
                 html=html.replace(`__${string}__`,data[string]||'')
             })
             $(this.el).html(html)
+            this.editSong(data)
+
         },
         reset(){
             this.render({})
+        },
+        editSong(data){
+            if(data.id){
+
+                $(this.el).find('p').remove()
+                $(this.el).prepend('<p>编辑歌曲</p>')
+            }else{
+                $(this.el).find('p').remove()
+                $(this.el).prepend('<p>新建歌曲</p>')
+            }
         }
 
     }
@@ -83,6 +96,11 @@
                 this.view.render(data)
             })
             window.eventHub.on('activeItem',(data)=>{
+                this.model.data = data
+                this.view.render(this.model.data)
+            })
+            window.eventHub.on('new',(data)=>{
+                this.view.editSong({})
                 this.model.data = data
                 this.view.render(this.model.data)
             })
