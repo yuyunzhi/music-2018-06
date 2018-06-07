@@ -26,15 +26,15 @@
         bindEvents(){
             $(this.view.el).on('click','p',()=>{
                 this.active()
-                window.eventHub.emit('new',data={})
+                window.eventHub.emit('new',{})
             })
         },
         bindEventHub(){
-            window.eventHub.on('uploadData',()=>{
-                this.active()
-            })
             window.eventHub.on('activeItem',()=>{
                 this.removeActive()
+            })
+            window.eventHub.on('new',()=>{
+                this.active()
             })
         }
     }

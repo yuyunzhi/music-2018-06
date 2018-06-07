@@ -47,7 +47,6 @@
         },
         editSong(data){
             if(data.id){
-
                 $(this.el).find('p').remove()
                 $(this.el).prepend('<p>编辑歌曲</p>')
             }else{
@@ -64,7 +63,6 @@
             singer:'',
             url:''
         },
-        hash:{},
         create(data){
             // 声明类型
             var Song = AV.Object.extend('Song');
@@ -92,18 +90,25 @@
             this.model = model
             this.bindEvents()
             this.view.render(this.model.data)
-            window.eventHub.on("uploadData",(data)=>{
-                this.view.render(data)
+
+
+            window.eventHub.on("new",(data)=>{
+                this.view.editSong(data)//更改编辑、新建的title
+                if(this.model.data.id){
+                    this.model.data={} 
+                } else{
+                    Object.assign(this.model.data,data)
+                }
+                this.view.render(this.model.data)  //渲染页面的歌曲信息
             })
+
+
             window.eventHub.on('activeItem',(data)=>{
                 this.model.data = data
+                console.log(this.model.data.id)
                 this.view.render(this.model.data)
             })
-            window.eventHub.on('new',(data)=>{
-                this.view.editSong({})
-                this.model.data = data
-                this.view.render(this.model.data)
-            })
+
         },
         bindEvents(){
             this.view.$el.on('submit','form',(e)=>{
@@ -118,7 +123,6 @@
                          this.view.reset()
                          window.eventHub.emit('create',this.model.data)
                 })
-
             })
         }
     }

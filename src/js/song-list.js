@@ -69,17 +69,13 @@
             })
         },
         bindEventHub(){
-            console.log('11111')
-            window.eventHub.on('uploadData',()=>{
-                this.view.clearActive()
-            })
-            console.log('2222')
+
             window.eventHub.on('create',(data)=>{
                 this.model.data.songs.push(data)
                 this.view.render(this.model.data)
             })
 
-            window.eventHub.on('new',()=>{
+            window.eventHub.on('new',(data)=>{
                 this.view.clearActive()
             })
         },
