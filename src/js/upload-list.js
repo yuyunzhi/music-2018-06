@@ -21,7 +21,6 @@
             this.initQiniu();
         },
         initQiniu(){
-            var uploadStatus = document.getElementById('uploadStatus')
             var uploader = Qiniu.uploader({
                  runtimes: 'html5',    //上传模式,依次退化
                  browse_button: 'clickable',       //上传选择的点选按钮，**必需**
@@ -58,10 +57,13 @@
                          var domain = up.getOption('domain');
                          var response = JSON.parse(info.response);
                          var sourceLink = 'http://'+domain+'/' +encodeURIComponent(response.key);
-                         
-                         uploadStatus.textContent = sourceLink + '/////'+ response.key
-                         console.log(sourceLink)
-                         console.log(response.key)
+                         window.eventHub.emit("uploadData",{
+                            "name":response.key,
+                            "url":sourceLink
+                         })
+
+
+
                          // 获取上传成功后的文件的Url
                      },
                      'Error': function(up, err, errTip) {
