@@ -20,6 +20,5 @@ $(function(){
         })
         $('.loading').remove()
 
-    }  )
-
+    })
 })

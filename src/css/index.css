@@ -53,6 +53,27 @@ body{font-size:3.7vw;}
     left:-10%;
 }
 
+.page-0.active{
+    display:block;
+}
+.page-0{
+    display:none;
+}
+.page-1.active{
+    display:block;
+}
+.page-1{
+    display:none;
+}
+
+.page-2.active{
+    display:block;
+}
+.page-2{
+    display:none;
+}
+
+
 section.playLists>h2{
     font-size:1.2em;
     margin:5vw 0;
