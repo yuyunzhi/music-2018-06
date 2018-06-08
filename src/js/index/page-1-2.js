@@ -1,4 +1,5 @@
 {
+    //最新音乐
     let view={
         el:"section.lastestMusic",
         template:`

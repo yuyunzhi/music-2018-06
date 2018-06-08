@@ -1,4 +1,5 @@
 {
+    //三个按钮切换
     let view={
         el:"#tabs",
         template:`
@@ -15,10 +16,10 @@
                 </li>
             </ol>
         </nav>
-        `,
-        render(data){
-            $(this.el).html(this.template)
-        }
+    `,
+    render(data){
+        $(this.el).html(this.template)
+    }
     }
     let model={
         data:{},

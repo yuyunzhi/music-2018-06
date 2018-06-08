@@ -53,10 +53,10 @@ body{font-size:3.7vw;}
     left:-10%;
 }
 
-.page-0.active{
+.page-3.active{
     display:block;
 }
-.page-0{
+.page-3{
     display:none;
 }
 .page-1.active{

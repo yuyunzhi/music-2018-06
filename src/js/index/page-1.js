@@ -1,5 +1,5 @@
 {
- 
+ //加载page-1的两个个模块
     let view ={
         el:'#page-1',
         show(){
@@ -19,7 +19,6 @@
             this.loadModlue1()
             this.loadModlue2()
             this.bindEventHub()
-
         },
         bindEventHub(){
             window.eventHub.on('clickpage',(data)=>{
