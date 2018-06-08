@@ -68,10 +68,7 @@ body{
     border:2px dashed black;
     display: flex;
     cursor: pointer;
-    text-align: center;
-
-
-    
+    text-align: center; 
 }
 
 .page>aside>.draggable>.clickable{

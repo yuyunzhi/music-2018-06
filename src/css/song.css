@@ -1,0 +1,120 @@
+*{margin:0;padding:0;box-sizing:border-box;}
+*::before,*::after{box-sizing:border-box}
+a{
+    text-decoration: none;
+}
+
+@keyframes circle{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.page{
+    display: flex;
+    flex-direction: column;
+    height:100vh;
+    background:url(http://p4.music.126.net/bLOjq_mIEyrQSt2TpKnuCA==/16618018742215339.jpg) center center ;
+    background-size:cover;
+}
+
+.disc-container{position: relative;}
+.disc-container>.icon-wrapper{
+    position: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 7;
+    top:46vw;
+    left:50%;
+    transform: translateX(-50%);
+}
+.disc-container>.icon-wrapper>.icon{
+    fill:white;
+    height:16vw;
+    width:16vw;
+    border:1px solid white;
+    border-radius: 50%;
+    display:none;
+
+}
+
+.disc-container>.icon-wrapper>.icon.playing{
+    display: block;
+}
+.disc-container>.icon-wrapper>.icon.icon-pasue.playing{
+    display: block;
+}
+.disc-container>.pointer{width:24vw;position: absolute;top:0;left:45vw;z-index: 10;}
+.disc-container>.disc{display: flex;justify-content: center;align-items: center;position: relative;top:18vw;}
+.disc-container>.disc>.ring{width:72vw;}
+.disc-container>.disc>.light{width:72vw;position: absolute;}
+.disc-container>.disc>.cover{width:45vw;position: absolute;border-radius:50%;}
+.disc-container>.disc.active{
+    animation: circle 20s linear infinite;
+}
+
+
+.song-description{
+    flex-grow: 1;
+    color:#C9C6C5;
+    text-align: center;
+    margin-top:22vw;
+    line-height:2;
+
+}
+
+.song-description .line{
+    transition: transform 0.3s;
+    position: relative;
+}
+
+.song-description h2{
+    color:white;
+    font-size:15px;
+}
+
+.song-description>.lyric>.line>p{
+    font-size:15px;
+    line-height:8.6vw;
+}
+
+.song-description>.lyric>.line>p.active{
+    color:white;
+}
+
+.song-description>.lyric{
+    height:25.9vw;
+    overflow: hidden;
+    margin-top:2vw;
+}
+
+.song-description>.lyric>.line>p:active{
+    color:white; 
+}
+
+.page > .links{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    color:#D43B32
+}
+
+.page > .links > a{
+    width:40vw;
+    margin:1em;
+    text-align:center;
+    border:1px solid #D43B32;
+    background:transparent;
+    color:inherit;
+    padding:0.5em;
+    border-radius:1.7vw;
+}
+
+.page > .links > a.main{
+    background:#D43B32;
+    color:white;
+}
