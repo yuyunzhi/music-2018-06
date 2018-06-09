@@ -4,41 +4,39 @@
 {
     let view = {
         el:'.disc-container',
-        template:`       
-        <div class="icon-wrapper">
-        
-        <svg class="icon icon-play" aria-hidden="true">
-            <use xlink:href="#icon-play"></use>
-        </svg>
-        <svg class="icon icon-pause" aria-hidden="true">
-            <use xlink:href="#icon-pause"></use>
-        </svg>
-        </div>
-    
-        <img class="pointer"src="https://s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862" alt="">
-        
-        <div class="disc">
-            <img class="ring" src="https://s3.music.126.net/m/s/img/disc-ip6.png?69796123ad7cfe95781ea38aac8f2d48" alt="">
-            <img class="light" src="https://s3.music.126.net/m/s/img/disc_light-ip6.png?996fc8a2bc62e1ab3f51f135fc459577" alt="" class="linght">
-            <img class="cover" src="https://i.loli.net/2018/06/09/5b1bf1ea204f8.png" alt="">
-        </div>
-    `,
         render(data){
-            $(this.el).html(this.template)
-        },
+            console.log(data)
+            console.log(data.background)
+            $('.page').css('background-image',`url(${data.background})`)
+            $(this.el).find('.cover').attr('src',data.cover)
+        }
     }
     let model = {
         data:{
-            id:"",
-            cover:""
+            song:{
+            },
+            id:''
         },
+        getId(id){
+            var query = new AV.Query('Song')
+            return query.get(id).then((song)=>{
+                return song.attributes
+            })
+         },
+        queryNumber(){
+            let id = window.location.search.substring(4)
+            this.data.id = id
+        },  
     }
     let controller = {
         init(view,model){
             this.view = view
             this.model = model
-            this.view.render(this.model.data)
-            this.bindEventHub(this.model.data)
+            this.model.queryNumber()
+            this.model.getId(this.model.data.id).then((data)=>{
+                this.view.render(data)
+            })
+            this.bindEventHub()
 
         },
         bindEventHub(){
