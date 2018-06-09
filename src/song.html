@@ -9,7 +9,8 @@
     <title>歌曲播放</title>
     <style type="text/css">
         .icon {
-        width: 1em; height: 1em;
+        width: 1em; 
+        height: 1em;
         vertical-align: -0.15em;
         fill: currentColor;
         overflow: hidden;
@@ -19,41 +20,33 @@
 <body>
     <div class="page">
 
-        <div class="disc-container">
-            <div class="icon-wrapper">
-                <svg class="icon icon-play" aria-hidden="true">
-                    <use xlink:href="#icon-play"></use>
-                </svg>
-                <svg class="icon icon-pause" aria-hidden="true">
-                    <use xlink:href="#icon-pause"></use>
-                </svg>
-            </div>
-           
-            <img class="pointer"src="https://s3.music.126.net/m/s/img/needle-ip6.png?be4ebbeb6befadfcae75ce174e7db862" alt="">
-            
-            <div class="disc">
-                <img class="ring" src="https://s3.music.126.net/m/s/img/disc-ip6.png?69796123ad7cfe95781ea38aac8f2d48" alt="">
-                <img class="light" src="https://s3.music.126.net/m/s/img/disc_light-ip6.png?996fc8a2bc62e1ab3f51f135fc459577" alt="" class="linght">
-                <img class="cover" src="https://p1.music.126.net/vK-oQF0N_HY8a38C-hixIg==/49478023262283.jpg?imageView&thumbnail=360y360&quality=75&tostatic=0" alt="">
+        <div class="disc-container"></div>
+
+        <div id="song-description"class="song-description">
+            <h2></h2>
+            <div class="lyric">
+                <div class="line"></div>
             </div>
         </div>
-
-        <div id="song-description"class="song-description"></div>
         
         <div class="links">
             <a href="#">打开</a>
             <a class ="main" href="#">下载</a>
         </div>
+
+        <div id="app"></div>
     </div>
+    <script src="./js/admin/event-hub.js"></script>
+    <script src="//at.alicdn.com/t/font_689682_givsorejhnlmobt9.js"></script>
     <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.7.1/dist/av-min.js"></script>
     <script src="./js/admin/av.js"></script>
     <script src="../vendors/moxie.js"></script>
     <script src="../vendors/plupload.min.js"></script>
     <script src="../vendors/qiniu.min.js"></script>
     <script src="../vendors/jquery-3.3.1.min.js"></script>
-
-    <script src="./js/playSong/lyric.js"></script>
+    <script src="./js/playSong/disc.js"></script>
+    <script src="./js/playSong/audio.js"></script>
     <script src="./js/playSong/song.js"></script>
-    <script src="//at.alicdn.com/t/font_689682_givsorejhnlmobt9.js"></script>
+    
 </body>
 </html>

@@ -40,6 +40,8 @@ function initPlayer(url){
         $('.disc').addClass('active')
         audio.play();
     })
+
+    
     setInterval(()=>{
         let seconds = audio.currentTime
         let minute = parseInt(seconds/60)
