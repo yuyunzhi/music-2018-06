@@ -7,6 +7,7 @@
         render(data){
             $('.page').css('background-image',`url(${data.background})`)
             $(this.el).find('.cover').attr('src',data.cover)
+            window.eventHub.emit('songInformaition',data)
         }
     }
     let model = {
@@ -18,7 +19,6 @@
         getId(id){
             var query = new AV.Query('Song')
             return query.get(id).then((song)=>{
-                window.eventHub.emit('songInformaition',song.attributes)
                 return song.attributes
             })
          },
@@ -33,6 +33,7 @@
             this.model = model
             this.model.queryNumber()
             this.model.getId(this.model.data.id).then((data)=>{
+                console.log(data.cover)
                 this.view.render(data)
             })
             this.bindEventHub()
