@@ -6,7 +6,8 @@
   "dependencies": {
     "plupload": "^2.3.2",
     "qiniu": "^7.1.7",
-    "qiniu-js": "^1.0.2"
+    "qiniu-js": "^1.0.2",
+    "vconsole": "^3.2.0"
   },
   "devDependencies": {},
   "scripts": {
