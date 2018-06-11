@@ -5,8 +5,6 @@
     let view = {
         el:'.disc-container',
         render(data){
-            console.log(data)
-            console.log(data.background)
             $('.page').css('background-image',`url(${data.background})`)
             $(this.el).find('.cover').attr('src',data.cover)
         }
@@ -20,6 +18,7 @@
         getId(id){
             var query = new AV.Query('Song')
             return query.get(id).then((song)=>{
+                window.eventHub.emit('songInformaition',song.attributes)
                 return song.attributes
             })
          },
