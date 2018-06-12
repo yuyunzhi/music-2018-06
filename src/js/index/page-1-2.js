@@ -47,8 +47,7 @@
             let query = new AV.Query('Song');
             return query.find().then((songs)=>{
                 this.data.songs=songs.map((song)=>{
-                    Object.assign(this.data.songs,song.attributes)
-                    return this.data.songs
+                    return {id:song.id,...song.attributes}
                 })
                 window.eventHub.emit("songs",this.data.songs)
                 return songs
