@@ -27,3 +27,14 @@ window.console={
     }
 }
 //创建一个id为consoleOutput的div，然后写fix的样式
+
+result.map((item)=>{
+    console.log()
+    $aTag=$(`
+    <a href="./song.html?id=${item.id}">
+        <img src="./img/search.png" alt="">
+        <p>${item[0].name}</p>
+     </a>
+    `)
+    $('.searchSongList').append($aTag)
+}) 
