@@ -7,6 +7,37 @@
         hide(){
             $(`#page-3`).removeClass('active')
         },
+        renderSongList(result){
+            $('.searchSongList>a').remove()
+            result.map((item)=>{
+                $aTag=$(`<a href="./song.html?id=${item.id}">
+                <img src="./img/search.png" alt="">
+                <p>${item.name}</p>                            
+                </a>`)
+                $('.searchSongList').append($aTag)
+            })
+        },
+        renderNoSong(){
+            $(this.el).find('.searchSongList>a>p').text('sorry,该歌曲暂未收入')
+        },
+        isHotSong(){
+            $('.hotSearch').removeClass('delActive')
+            $('.searchSongList').addClass('delActive')
+        },
+        isSearch(){
+            $('.hotSearch').addClass('delActive')
+            $('.searchSongList').removeClass('delActive')
+        },
+        renderSearchText(value){
+            $(this.el).find('.searchSongList>p>span').text(value)
+        },
+        changeDelete(value){
+            if(value.length===0){
+                $('.deleteIcon').removeClass('active')
+            }else{
+                $('.deleteIcon').addClass('active')
+            }
+        }
 
     }
     let model={
@@ -33,7 +64,6 @@
         },
         bindEvents(view,fn){
             let timer
-
             $(this.view.el).find('input[type="search"]').on('input',(e)=>{
                 let $input=$(e.currentTarget)
                 let value = $input.val().trim()
@@ -42,32 +72,30 @@
                 }
                 timer = setTimeout(()=>{
                     if(value.length===0){
-                        $('.hotSearch').removeClass('delActive')
-                        $('.searchSongList').addClass('delActive')
+                        this.view.changeDelete(value)
+                        this.view.isHotSong()
                     }else{
-                        $('.hotSearch').addClass('delActive')
-                        $('.searchSongList').removeClass('delActive')
-                        $(this.view.el).find('.searchSongList>p>span').text(value)
-    
+                        this.view.changeDelete(value)
+                        this.view.isSearch()
+                        this.view.renderSearchText(value)  
                         this.search(value).then((result)=>{
                             let songNumber = result.length
                             if(songNumber==0){
-                                $(this.view.el).find('.searchSongList>a>p').text('sorry,该歌曲暂未收入')               
+                                this.view.renderNoSong()               
                             }else{
-                                $('.searchSongList>a').remove()
-                                result.map((item)=>{
-                                    $aTag=$(`<a href="./song.html?id=${item.id}">
-                                    <img src="./img/search.png" alt="">
-                                    <p>${item.name}</p>                            
-                                    </a>`)
-                                    $('.searchSongList').append($aTag)
-                                })
-       
+                                this.view.renderSongList(result)     
                             }
                         })
                     }
 
-                },800)
+                },400)
+            })
+
+
+            $('.deleteIcon').on('click',()=>{
+                $value=$(this.view.el).find('input[type="search"]').val("")
+                this.view.changeDelete($value)
+                this.view.isHotSong()
             })
         },
         search(keyword){
