@@ -87,7 +87,7 @@
             // 设置优先级
             return song.save().then((newSong)=>{
                 let {id,attributes}=newSong
-                this.data={id,...attributes}  
+                Object.assign(this.data.id,attributes)
             },(error)=>{
                 console.log('失败了');
             });

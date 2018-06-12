@@ -40,8 +40,11 @@
             let query = new AV.Query('Song');
             return query.find().then((songs)=>{
                 this.data.songs=songs.map((song)=>{
-                    return {id:song.id,...song.attributes }
+                    Object.assign(this.data.songs,song.attributes)
+                    return this.data.songs
                 })
+                console.log('songs')
+                console.log(songs)
                 return songs
               });
 
