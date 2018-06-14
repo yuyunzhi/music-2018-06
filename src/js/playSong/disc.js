@@ -33,7 +33,6 @@
             this.model = model
             this.model.queryNumber()
             this.model.getId(this.model.data.id).then((data)=>{
-                console.log(data.cover)
                 this.view.render(data)
             })
             this.bindEventHub()

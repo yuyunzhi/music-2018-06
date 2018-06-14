@@ -61,9 +61,7 @@
                     let top = $thisLine.offset().top
                     let lineTop = $('.line').offset().top
                     let delta = top -lineTop-$('.lyric').height()/3
-                    $('.line').css('top',`-${delta}px`)
-        
-                    
+                    $('.line').css('top',`-${delta}px`)                  
                 }
             })
         }
