@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="./css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.min.css">
     <script src="//at.alicdn.com/t/font_689682_7pvtwqamy4kdfgvi.js"></script>
     <title>网易云音乐</title>
 </head>
@@ -23,21 +22,8 @@
     <ol id="tab-page">
         <li id="page-1"class="page-1 active">
             <section class="swpier">
-                <!-- Slider main container -->
-                <div class="swiper-container">
-                    <!-- Additional required wrapper -->
-                    <div class="swiper-wrapper">
-                        <!-- Slides -->
-                        <div class="swiper-slide"><img src="./img/art2.png" alt=""></div>
-                        <div class="swiper-slide"><img src="./img/art1.png" alt=""></div>
-                        <div class="swiper-slide"><img src="./img/art3.png" alt=""></div>                      
-                    </div>
-                    <!-- If we need pagination -->
-                    <div class="swiper-pagination"></div>
-
-                </div>
-            </section>  
-
+                
+            </section>   
             <section class="playLists"></section>
             <section id="musicList"class="lastestMusic"></section>
             <section id="art"class="art">
@@ -108,35 +94,10 @@
     <script src="../vendors/plupload.min.js"></script>
     <script src="../vendors/qiniu.min.js"></script>
     <script src="../src/js/admin/event-hub.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.min.js"></script>
+
     <script src="./js/index/tab.js"></script>
     <script src="./js/index/page-1.js"></script>
     <script src="./js/index/page-2.js"></script>
-    <script src="./js/index/page-3.js"></script>
-    <script>
-            var mySwiper = new Swiper ('.swiper-container', {
-
-              loop: true,
-          
-              // If we need pagination
-              pagination: {
-                el: '.swiper-pagination',
-              },
-          
-              // And if we need scrollbar
-              scrollbar: {
-                el: '.swiper-scrollbar',
-              },
-
-              autoplay: {
-                delay: 1500,
-                stopOnLastSlide: false,
-                disableOnInteraction: true,
-                }
-
-
-            })
-
-            </script> 
+    <script src="./js/index/page-3.js"></script>    
 </body>
 </html>

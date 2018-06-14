@@ -82,16 +82,6 @@ input,button,select,textarea{outline:none}
 }
 /****以下为page1的样式*****/
 
-.swiper-container {
-    width: 100vw;
-    height: 45.8vw;
-}
-
-.swiper-container img{
-    width: 100vw;
-    height: 45.8vw;
-}
-
 section.playLists>h2{
     font-size:1.2em;
     margin:5vw 0;
