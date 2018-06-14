@@ -87,7 +87,8 @@
             // 设置优先级
             return song.save().then((newSong)=>{
                 let {id,attributes}=newSong
-                this.data={id,...attributes}
+                //未改动前 this.data={id,...attributes}
+                this.data={background,cover,descript,hotSong,lyric,name,url,id}
             },(error)=>{
                 console.log('失败了');
             });
