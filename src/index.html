@@ -22,7 +22,7 @@
 
     <ol id="tab-page">
         <li id="page-1"class="page-1 active">
-            <section class="swpier">
+            <section class="swiper">
                 <!-- Slider main container -->
                 <div class="swiper-container">
                     <!-- Additional required wrapper -->
@@ -37,8 +37,10 @@
 
                 </div>
             </section>  
-
+ 
+ 
             <section class="playLists"></section>
+
             <section id="musicList"class="lastestMusic"></section>
             <section id="art"class="art">
                 <div class="logo">
@@ -100,7 +102,7 @@
     <script>
         // init vConsole
         var vConsole = new VConsole();
-      </script>
+    </script>
     <script src="../vendors/jquery-3.3.1.min.js"></script>
     <script src="//cdn.jsdelivr.net/npm/leancloud-storage@3.7.1/dist/av-min.js"></script>
     <script src="./js/admin/av.js"></script>
@@ -113,30 +115,5 @@
     <script src="./js/index/page-1.js"></script>
     <script src="./js/index/page-2.js"></script>
     <script src="./js/index/page-3.js"></script>
-    <script>
-            var mySwiper = new Swiper ('.swiper-container', {
-
-              loop: true,
-          
-              // If we need pagination
-              pagination: {
-                el: '.swiper-pagination',
-              },
-          
-              // And if we need scrollbar
-              scrollbar: {
-                el: '.swiper-scrollbar',
-              },
-
-              autoplay: {
-                delay: 1000,
-                stopOnLastSlide: false,
-                disableOnInteraction: true,
-                }
-
-
-            })
-
-            </script> 
 </body>
 </html>

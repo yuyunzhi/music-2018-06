@@ -82,6 +82,11 @@ input,button,select,textarea{outline:none}
 }
 /****以下为page1的样式*****/
 
+section.swiper{
+    position: relative;
+    bottom:0.2vw;
+}
+
 .swiper-container {
     width: 100vw;
     height: 45.8vw;

@@ -16,6 +16,7 @@
         init(view,model){
             this.view=view
             this.model=model
+            this.startSwiper()
             this.loadModlue1()
             this.loadModlue2()
             this.bindEventHub()
@@ -24,9 +25,28 @@
             window.eventHub.on('clickpage',(data)=>{
                 if(data===0){
                     this.view.show()
+                    this.startSwiper()
                 }else{
                     this.view.hide()
                 }              
+            })
+        },
+        startSwiper(){
+            var mySwiper = new Swiper ('.swiper-container', {               
+                loop: true,           
+                // If we need pagination
+                pagination: {
+                el: '.swiper-pagination',
+                },           
+                // And if we need scrollbar
+                scrollbar: {
+                el: '.swiper-scrollbar',
+                },
+                autoplay: {
+                delay: 1000,
+                stopOnLastSlide: false,
+                disableOnInteraction: true,
+                }
             })
         },
         loadModlue1(){
