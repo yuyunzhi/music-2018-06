@@ -52,7 +52,6 @@
                     let id=song.id                  
                     return {background,cover,descript,hotSong,lyric,name,url,id}
                 })
-                console.log(this.data.songs)
                 window.eventHub.emit("songs",this.data.songs)
                 return songs
               });
