@@ -103,8 +103,6 @@
             this.model = model
             this.bindEvents()
             this.view.render(this.model.data)
-
-
             window.eventHub.on("new",(data)=>{
                 this.view.editSong(data)//更改编辑、新建的title
                 if(this.model.data.id){

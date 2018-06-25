@@ -9,27 +9,27 @@
         </h2>
         <ul>
             <li>
-                <img src="./img/1.png" alt="1.png">
+                <img src="./img/1.jpg" alt="1.jpg">
                 <p>生活明朗，万物可爱</p>
             </li>
             <li>
-                <img src="./img/2.png" alt="2.png">
+                <img src="./img/2.jpg" alt="2.jpg">
                 <p>线上空调 | 如何用一把吉他冰镇夏天</p>
             </li>
             <li>
-                <img src="./img/3.png" alt="3.png">
+                <img src="./img/3.jpg" alt="3.jpg">
                 <p>难道六岁的我 就不能为爱流一次眼泪吗</p>
             </li>
             <li>
-                <img src="./img/4.png" alt="4.png">
+                <img src="./img/4.jpg" alt="4.jpg">
                 <p>中文hip hop 听就完事儿了</p>
             </li>
             <li>
-                <img src="./img/5.png" alt="5.png">
+                <img src="./img/5.jpg" alt="5.jpg">
                 <p>单曲循环|｡･㉨･)っ♡　喜欢你♪</p>
             </li>
             <li>
-                <img src="./img/6.png" alt="6.png">
+                <img src="./img/6.jpg" alt="6.jpg">
                 <p>予你情诗百首，余生你是我的所有</p>
             </li>
         </ul>

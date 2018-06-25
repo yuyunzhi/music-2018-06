@@ -43,7 +43,7 @@
                 el: '.swiper-scrollbar',
                 },
                 autoplay: {
-                delay: 1000,
+                delay: 1500,
                 stopOnLastSlide: false,
                 disableOnInteraction: true,
                 }
